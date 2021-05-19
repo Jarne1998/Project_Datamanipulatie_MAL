@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL_WPF", "MAL_WPF\MAL_WPF.csproj", "{87371E42-530B-4A95-8763-67B8B48610EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL_Models", "MAL_Models\MAL_Models.csproj", "{B192C4D7-DF73-4126-9310-F70716D1C22F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL_DAL", "MAL_DAL\MAL_DAL.csproj", "{654E53F3-DFBA-41E6-8E67-55BB840FC99C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87371E42-530B-4A95-8763-67B8B48610EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87371E42-530B-4A95-8763-67B8B48610EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87371E42-530B-4A95-8763-67B8B48610EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87371E42-530B-4A95-8763-67B8B48610EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B192C4D7-DF73-4126-9310-F70716D1C22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B192C4D7-DF73-4126-9310-F70716D1C22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B192C4D7-DF73-4126-9310-F70716D1C22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B192C4D7-DF73-4126-9310-F70716D1C22F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {892FC429-8215-452D-A59A-9C29A444AF0F}
+	EndGlobalSection
+EndGlobal

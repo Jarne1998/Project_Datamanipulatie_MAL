@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="675334ecb0e34d2094e846d32644101c" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="Project_MALModel.Anime" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.AnimeCollection" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.AnimeGenre" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.Collection" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.Genre" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.Studio" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_MALModel.User" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="Project_MALModel.FK_Anime" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_MALModel.FK_GenreAnime" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_MALModel.FK_Studio" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_MALModel.FK_Collection" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_MALModel.FK_GenreGenre" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_MALModel.FK_Gebruiker" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

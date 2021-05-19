@@ -1,0 +1,62 @@
+﻿<Window x:Class="MAL_WPF.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAL_WPF"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+       
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="UserWindow" Height="600" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.RowSpan="7" Background="#FF304DAE">
+            <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
+                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
+            <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" SelectionChanged="CmbLijst_SelectionChanged" />
+
+            <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF47A098"/>
+            <Button x:Name="btnNewList" Content="Nieuwe lijst" Margin="5" Click="BtnNewList_Click" Background="#FF47A098"/>
+            <Button x:Name="btnDeleteList" Content="Deleten lijst" Margin="5" Click="BtnDeleteList_Click" Background="#FFB73A3A"/>
+
+        </StackPanel>
+
+
+        <DataGrid x:Name="dataUser" AutoGenerateColumns="False" Margin="5"
+                  IsReadOnly="True" Grid.RowSpan="4" Grid.Row="3" SelectionChanged="DataUser_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding userId}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
+                <DataGridTextColumn Binding="{Binding userName}" Header="Gebruikersnaam"/>
+                <DataGridTextColumn Binding="{Binding location}" Header="Locatie"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="dataCollection" AutoGenerateColumns="False" Margin="5" SelectionChanged="DataCollection_SelectionChanged"
+                  IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="7" Grid.Row="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
