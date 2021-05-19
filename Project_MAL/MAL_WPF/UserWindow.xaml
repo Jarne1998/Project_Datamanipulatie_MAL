@@ -33,7 +33,8 @@
         <StackPanel Orientation="Vertical" Grid.RowSpan="7" Background="#FF304DAE">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
                       Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
-            <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" SelectionChanged="CmbLijst_SelectionChanged" />
+            <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" SelectionChanged="CmbLijst_SelectionChanged" 
+                      DisplayMemberPath="name"/>
 
             <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF47A098"/>
             <Button x:Name="btnNewList" Content="Nieuwe lijst" Margin="5" Click="BtnNewList_Click" Background="#FF47A098"/>

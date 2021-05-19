@@ -24,9 +24,12 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="skpList" Grid.Column="1" Grid.Row="1" Orientation="Vertical" Background="#FF304DAE">
+        <StackPanel x:Name="skpList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical" Background="#FF304DAE">
+            <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
+                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged" />
             <TextBox
           materialDesign:HintAssist.Hint="Naruto"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"

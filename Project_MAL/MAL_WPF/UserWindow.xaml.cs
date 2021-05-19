@@ -29,8 +29,10 @@ namespace MAL_WPF
         {
             cmbUser.DisplayMemberPath = "name";
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
-            cmbUser.DisplayMemberPath = "name";
+            
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
+
+            List<Collection> collection = DatabaseOperations.OphalenCollectie();
         }
 
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
@@ -52,12 +54,12 @@ namespace MAL_WPF
 
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //dataCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
+            
         }
 
         private void CmbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string foutmelding = Valideer("cmbCollection");
+            dataCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
         }
 
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)

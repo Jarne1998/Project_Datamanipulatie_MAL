@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\jarne\Desktop\Project_MAL\Project_MAL\MAL_DAL\ProjectMalModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\jarne\Desktop\Project_Datamanipulatie_MAL\Project_MAL\MAL_DAL\ProjectMalModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
