@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAL_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,18 +27,38 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            cmbUser.DisplayMemberPath = "name";
+            cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
         }
 
         private void BtnCreateList_Click(object sender, RoutedEventArgs e)
         {
-           // Geen idee hoe de lijst aanmaken
+            string foutmelding = Valideer("cmbUser");
+
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            UserWindow userWindow = new UserWindow();
-            userWindow.Show();
+            this.Close();
+        }
+
+        private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private string Valideer(string columName)
+        {
+            if (columName == "cmbUser" && cmbUser.SelectedItem == null)
+            {
+                return "Selecteer een gebruiker!" + Environment.NewLine;
+            }
+
+            return "";
         }
     }
 }

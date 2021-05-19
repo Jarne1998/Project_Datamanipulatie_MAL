@@ -88,5 +88,22 @@ namespace MAL_DAL
                 return 0;
             }
         }
+
+        public static int ToevoegenLijst(Collection collection)
+        {
+            try
+            {
+                using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+                {
+                    project_MALEntities.Entry(collection).State = EntityState.Modified;
+                    return project_MALEntities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.Foutloggen(ex);
+                return 0;
+            }
+        }
     }
 }
