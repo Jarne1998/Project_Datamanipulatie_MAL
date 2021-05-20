@@ -33,6 +33,7 @@ namespace MAL_WPF
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
 
             List<Collection> collection = DatabaseOperations.OphalenCollectie();
+
         }
 
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
@@ -49,7 +50,26 @@ namespace MAL_WPF
 
         private void BtnDeleteList_Click(object sender, RoutedEventArgs e)
         {
+            string foutmelding = Valideer("name");
 
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                Collection collection = dataCollection.SelectedItem as Collection;
+
+                int ok = DatabaseOperations.VerwijderenLijst(collection);
+                if (ok > 0)
+                {
+                    MessageBox.Show("Verwijderen van lijst is gelukt!");
+                }
+                else
+                {
+                    MessageBox.Show("Lijst is niet verwijderd!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
 
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)

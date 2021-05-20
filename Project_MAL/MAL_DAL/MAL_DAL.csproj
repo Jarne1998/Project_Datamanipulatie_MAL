@@ -70,7 +70,7 @@
     <Compile Include="Genre.cs">
       <DependentUpon>ProjectMalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\User.cs" />
+    <Compile Include="Partials\Collection.cs" />
     <Compile Include="ProjectMalModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +119,12 @@
       <DependentUpon>ProjectMalModel.edmx</DependentUpon>
       <LastGenOutput>ProjectMalModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MAL_Models\MAL_Models.csproj">
+      <Project>{b192c4d7-df73-4126-9310-f70716d1c22f}</Project>
+      <Name>MAL_Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

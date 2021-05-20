@@ -95,7 +95,7 @@ namespace MAL_DAL
             {
                 using (Project_MALEntities project_MALEntities = new Project_MALEntities())
                 {
-                    project_MALEntities.Entry(collection).State = EntityState.Modified;
+                    project_MALEntities.Collection.Add(collection);
                     return project_MALEntities.SaveChanges();
                 }
             }

@@ -37,7 +37,30 @@ namespace MAL_WPF
 
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
-                
+                Collection collection = new Collection();
+
+                collection.name = txtLijst.Text;
+
+                if (collection.IsGeldig())
+                {
+                    int ok = DatabaseOperations.ToevoegenLijst(collection);
+                    if (ok > 0)
+                    {
+                        MessageBox.Show("Lijst is toegevoegd!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lijst is niet toegevoegd");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(collection.ErrorMessages);
+                }
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
             }
         }
 
