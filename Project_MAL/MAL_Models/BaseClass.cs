@@ -8,6 +8,13 @@ namespace MAL_Models
 {
     public abstract class BaseClass
     {
+        public abstract string this[string columName] { get; }
+
+        public bool IsGeldig()
+        {
+            return string.IsNullOrWhiteSpace(ErrorMessages);
+        }
+
         public string ErrorMessages
         {
             get
@@ -16,13 +23,12 @@ namespace MAL_Models
 
                 foreach (var item in this.GetType().GetProperties())
                 {
-                    if (item.CanRead && item.CanWrite)
+                    if (item.CanRead)
                     {
-                        string error = Validate(item.Name);
-
-                        if (!string.IsNullOrWhiteSpace(error))
+                        string fout = this[item.Name];
+                        if (!string.IsNullOrWhiteSpace(fout))
                         {
-                            errorMessage += error + Environment.NewLine;
+                            errorMessage += fout + Environment.NewLine;
                         }
                     }
                 }
@@ -30,7 +36,5 @@ namespace MAL_Models
                 return errorMessage;
             }
         }
-
-        public abstract string Validate(string propertyname);
     }
 }

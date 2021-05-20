@@ -53,10 +53,11 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="dataCollection" AutoGenerateColumns="False" Margin="5" SelectionChanged="DataCollection_SelectionChanged"
+        <DataGrid x:Name="dataCollection" AutoGenerateColumns="True" Margin="5" SelectionChanged="DataCollection_SelectionChanged"
                   IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="7" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
+                <DataGridTextColumn Binding="{Binding collectionId}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
