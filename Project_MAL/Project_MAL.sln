@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL_Models", "MAL_Models\MA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAL_DAL", "MAL_DAL\MAL_DAL.csproj", "{654E53F3-DFBA-41E6-8E67-55BB840FC99C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting_UnitTests", "UnitTesting_UnitTests\UnitTesting_UnitTests.csproj", "{1B7A44FC-C318-4F52-8032-84088EB790ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{654E53F3-DFBA-41E6-8E67-55BB840FC99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B7A44FC-C318-4F52-8032-84088EB790ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B7A44FC-C318-4F52-8032-84088EB790ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B7A44FC-C318-4F52-8032-84088EB790ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B7A44FC-C318-4F52-8032-84088EB790ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

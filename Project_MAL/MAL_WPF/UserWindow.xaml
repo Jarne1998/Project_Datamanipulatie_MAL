@@ -38,6 +38,7 @@
 
             <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF47A098"/>
             <Button x:Name="btnNewList" Content="Nieuwe lijst" Margin="5" Click="BtnNewList_Click" Background="#FF47A098"/>
+            <Button x:Name="btnWijzigenNaam" Content="Wijzigen" Margin="5" Click="BtnWijzigenNaam_Click" Background="#FF47A098"/>
             <Button x:Name="btnDeleteList" Content="Deleten lijst" Margin="5" Click="BtnDeleteList_Click" Background="#FFB73A3A"/>
 
         </StackPanel>
