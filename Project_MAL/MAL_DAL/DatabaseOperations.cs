@@ -14,7 +14,7 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Anime
-                    .Include(x => x.name)
+                    .Include(x => x.AnimeCollection)
                     .OrderBy(x => x.name)
                     .ToList();
             }
@@ -25,6 +25,8 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Anime
+                    .Include(x => x.AnimeCollection)
+                    .Include(x => x.Studios)
                     .OrderBy(x => x.name)
                     .ToList();
             }
@@ -45,6 +47,19 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Collection
+                    .Include(x => x.AnimeCollection.Select(sub => sub.Animes))
+                    .OrderBy(x => x.name)
+                    .ToList();
+            }
+        }
+
+        public static List<Anime> OphalenAnimesViaId()
+        {
+            using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+            {
+                return project_MALEntities.Anime
+                    .Include(x => x.AnimeCollection)
+                    //.Where(x => x.animeId == anime_ID)
                     .OrderBy(x => x.name)
                     .ToList();
             }
@@ -69,6 +84,23 @@ namespace MAL_DAL
                     .Where(x => x.userId == user_Id)
                     .OrderBy(x => x.name)
                     .ToList();
+            }
+        }
+
+        public static int AanpassenNaamLijst(Collection collection)
+        {
+            try
+            {
+                using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+                {
+                    project_MALEntities.Entry(collection).State = EntityState.Modified;
+                    return project_MALEntities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.Foutloggen(ex);
+                return 0;
             }
         }
 

@@ -33,7 +33,6 @@ namespace MAL_WPF
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
 
             List<Collection> collection = DatabaseOperations.OphalenCollectie();
-
         }
 
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
@@ -113,6 +112,12 @@ namespace MAL_WPF
             }
 
             return "";
+        }
+
+        private void BtnWijzigenNaam_Click(object sender, RoutedEventArgs e)
+        {
+            WijzigenWindow wijzigenWindow = new WijzigenWindow();
+            wijzigenWindow.Show();
         }
     }
 }

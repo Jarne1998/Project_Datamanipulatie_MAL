@@ -1,0 +1,49 @@
+﻿<Window x:Class="MAL_WPF.WijzigenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MAL_WPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+       
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="WijzigenWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF304DAE">
+            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Background="#FF47A098" Click="BtnAnnuleer_Click"/>
+            <Button x:Name="btnAanpassen" Content="Aanpassen" Margin="5" Background="#FF47A098" Click="BtnAanpassen_Click"/>
+        </StackPanel>
+        
+        <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijsten" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruiker" Grid.Row="1" Grid.Column="0" Margin="5"/>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.RowSpan="2" Grid.Row="2">
+            <TextBox x:Name="txtNaamLijst" materialDesign:HintAssist.Hint="Naam" Margin="5"/>
+        </StackPanel>
+
+        <DataGrid x:Name="datagridLijstInhoud" AutoGenerateColumns="False" IsReadOnly="True"
+                  Grid.Row="2" Grid.Column="0" Margin="5" SelectionChanged="DatagridLijstInhoud_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding animeId}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
+                <DataGridTextColumn Binding="{Binding AnimeCollectie.name}" Header="Collectie"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
