@@ -29,10 +29,14 @@ namespace MAL_WPF
         {
             cmbUser.DisplayMemberPath = "name";
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
-            
+            cmbCollection.DisplayMemberPath = "name";
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
 
-            List<Collection> collection = DatabaseOperations.OphalenCollectie();
+            cmbCollection.Items.Refresh();
+
+            //dataCollection.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
+
+            //List<Collection> collection = DatabaseOperations.OphalenCollectie();
         }
 
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
@@ -49,36 +53,18 @@ namespace MAL_WPF
 
         private void BtnDeleteList_Click(object sender, RoutedEventArgs e)
         {
-            string foutmelding = Valideer("name");
-
-            if (string.IsNullOrWhiteSpace(foutmelding))
-            {
-                Collection collection = dataCollection.SelectedItem as Collection;
-
-                int ok = DatabaseOperations.VerwijderenLijst(collection);
-                if (ok > 0)
-                {
-                    MessageBox.Show("Verwijderen van lijst is gelukt!");
-                }
-                else
-                {
-                    MessageBox.Show("Lijst is niet verwijderd!");
-                }
-            }
-            else
-            {
-                MessageBox.Show(foutmelding);
-            }
+            VerwijderenLijstWindow verwijderenLijstWindow = new VerwijderenLijstWindow();
+            verwijderenLijstWindow.Show();
         }
 
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
         }
 
         private void CmbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dataCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
+            
         }
 
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)

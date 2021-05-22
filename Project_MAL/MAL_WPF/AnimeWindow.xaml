@@ -62,6 +62,7 @@
                 <DataGridTextColumn Binding="{Binding duration}" Header="Duur"/>
                 <DataGridTextColumn Binding="{Binding rating}" Header="Rating"/>
                 <DataGridTextColumn Binding="{Binding type}" Header="Type"/>
+                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

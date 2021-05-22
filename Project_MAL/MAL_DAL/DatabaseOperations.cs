@@ -37,6 +37,7 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities()) 
             {
                 return project_MALEntities.Studio
+                    .Include(x => x.Anime)
                     .OrderBy(x => x.name)
                     .ToList();
             }
@@ -59,7 +60,6 @@ namespace MAL_DAL
             {
                 return project_MALEntities.Anime
                     .Include(x => x.AnimeCollection)
-                    //.Where(x => x.animeId == anime_ID)
                     .OrderBy(x => x.name)
                     .ToList();
             }
@@ -71,6 +71,7 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.User
+                    .Include(x => x.Collection.Select(sub => sub.AnimeCollection))
                     .OrderBy(x => x.name)
                     .ToList();
             }
