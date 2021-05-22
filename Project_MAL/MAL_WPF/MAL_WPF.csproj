@@ -83,6 +83,9 @@
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VerwijderenLijstWindow.xaml.cs">
+      <DependentUpon>VerwijderenLijstWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WijzigenWindow.xaml.cs">
       <DependentUpon>WijzigenWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerwijderenLijstWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
