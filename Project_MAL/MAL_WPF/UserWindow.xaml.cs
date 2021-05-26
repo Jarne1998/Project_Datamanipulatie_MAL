@@ -37,6 +37,8 @@ namespace MAL_WPF
             //dataCollection.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
 
             //List<Collection> collection = DatabaseOperations.OphalenCollectie();
+
+            List<User> users = DatabaseOperations.OphalenUsers();
         }
 
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
@@ -59,12 +61,12 @@ namespace MAL_WPF
 
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
+            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
         private void CmbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,7 +75,10 @@ namespace MAL_WPF
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
                 User user = cmbUser.SelectedItem as User;
+                //Collection collection = cmbCollection.SelectedItem as Collection;
+
                 dataUser.ItemsSource = DatabaseOperations.OphalenUsersViaId(user.userId);
+                //dataCollection.ItemsSource = DatabaseOperations.OphalenCollectie(collection.collectionId);
             }
             else
             {

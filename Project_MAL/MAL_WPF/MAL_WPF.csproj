@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnimeInfoWindow.xaml.cs">
+      <DependentUpon>AnimeInfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AnimeWindow.xaml.cs">
       <DependentUpon>AnimeWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Compile Include="WijzigenWindow.xaml.cs">
       <DependentUpon>WijzigenWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AnimeInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AnimeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
