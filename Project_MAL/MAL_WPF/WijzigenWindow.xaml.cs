@@ -55,7 +55,7 @@ namespace MAL_WPF
                     int ok = DatabaseOperations.AanpassenNaamLijst(collection);
                     if (ok > 0)
                     {
-                        datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
+                        datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnimes();
 
                     }
                     else
@@ -81,7 +81,7 @@ namespace MAL_WPF
 
         private void DatagridLijstInhoud_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnime();
+            datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
     }
 }

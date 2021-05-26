@@ -20,7 +20,7 @@ namespace MAL_DAL
             }
         }
 
-        public static List<Anime> OphalenAnime()
+        public static List<Anime> OphalenAnimes()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
@@ -49,19 +49,21 @@ namespace MAL_DAL
             {
                 return project_MALEntities.Collection
                     .Include(x => x.AnimeCollection.Select(sub => sub.Animes))
+                    //.Where(x => x.userId == collection_Id)
                     .OrderBy(x => x.name)
                     .ToList();
             }
         }
 
-        public static List<Anime> OphalenAnimesViaId()
+        public static Anime OphalenAnimesViaId()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Anime
                     .Include(x => x.AnimeCollection)
+                    .Where(x => x.animeId == Helper.animeId)
                     .OrderBy(x => x.name)
-                    .ToList();
+                    .SingleOrDefault();
             }
         }
 
@@ -71,7 +73,7 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.User
-                    .Include(x => x.Collection.Select(sub => sub.AnimeCollection))
+                    .Include(x => x.Collection.Select(sub => sub.AnimeCollection.Select(sub2 => sub2.Animes)))
                     .OrderBy(x => x.name)
                     .ToList();
             }

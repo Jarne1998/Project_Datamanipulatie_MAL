@@ -27,26 +27,27 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            PosterBleach.Source = new BitmapImage(new Uri("images/Bleach.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/DeamonSlayer.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/DetectiveConan.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/FullmetalAlchemist.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/Haikyuu.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/Naruto.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/OnePiece.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/Overlord.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/That-Time-I-Got-Reincarnated-as-a-Slime.jpg", UriKind.Relative));
-            PosterBleach.Source = new BitmapImage(new Uri("images/5ds-yu-gi-oh.jpg", UriKind.Relative));
+            
         }
 
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
+            animeInfoWindow.Show();
+
+            //StudioWindow studioWindow = new StudioWindow();
+            //studioWindow.Show();
+
+            Anime anime = dataAnime.SelectedItem as Anime;
+            //Studio studio = dataAnime.SelectedItem as Studio;
+
+            Helper.animeId = anime.animeId;
+            //Helper.studioId = studio.studioId;
         }
 
         private void BtnAnime_Click(object sender, RoutedEventArgs e)
         {
-            dataAnime.ItemsSource = DatabaseOperations.OphalenAnime();
+            dataAnime.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
         private void BtnStudio_Click(object sender, RoutedEventArgs e)
