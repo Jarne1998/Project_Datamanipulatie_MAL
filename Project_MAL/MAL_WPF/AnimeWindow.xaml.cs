@@ -27,22 +27,25 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            PosterBleach.Source = new BitmapImage(new Uri("images/DeamonSlayer.jpg", UriKind.Relative));
         }
 
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
-            animeInfoWindow.Show();
+            if (dataAnime.SelectedItem is Anime anime)
+            {
+                Helper.animeId = anime.animeId;
 
-            //StudioWindow studioWindow = new StudioWindow();
-            //studioWindow.Show();
+                AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
+                animeInfoWindow.Show();
+            }
+            else if (dataAnime.SelectedItem is Studio studio)
+            {
+                Helper.studioId = studio.studioId;
 
-            Anime anime = dataAnime.SelectedItem as Anime;
-            //Studio studio = dataAnime.SelectedItem as Studio;
-
-            Helper.animeId = anime.animeId;
-            //Helper.studioId = studio.studioId;
+                StudioWindow studioWindow = new StudioWindow();
+                studioWindow.Show();
+            }
         }
 
         private void BtnAnime_Click(object sender, RoutedEventArgs e)
@@ -53,11 +56,6 @@ namespace MAL_WPF
         private void BtnStudio_Click(object sender, RoutedEventArgs e)
         {
             dataAnime.ItemsSource = DatabaseOperations.OphalenStudio();
-        }
-
-        private void DataStudio_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

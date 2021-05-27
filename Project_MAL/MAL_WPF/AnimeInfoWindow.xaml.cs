@@ -29,6 +29,8 @@ namespace MAL_WPF
         {
             Anime anime = DatabaseOperations.OphalenAnimesViaId();
 
+            //dataAnimeInfo.ItemsSource = anime.AnimeGenre;
+
             switch (Helper.animeId)
             {
                 case 1:
@@ -72,6 +74,11 @@ namespace MAL_WPF
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void DataAnimeInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

@@ -40,6 +40,10 @@
             <Button x:Name="btnStudio" Content="Studio" Margin="5" Click="BtnStudio_Click" Background="#FF47A098"/>
         </StackPanel>
 
+        <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+            <Image x:Name="PosterBleach" Height="auto" Width="auto" Grid.Row="1" Margin="5"/>
+        </StackPanel>
+
         <DataGrid x:Name="dataAnime" AutoGenerateColumns="False" Margin="5" SelectionChanged="DataAnime_SelectionChanged"
                   IsReadOnly="True" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="12" Grid.Row="1">
             <DataGrid.Columns>
@@ -49,7 +53,6 @@
                 <DataGridTextColumn Binding="{Binding duration}" Header="Duur"/>
                 <DataGridTextColumn Binding="{Binding rating}" Header="Rating"/>
                 <DataGridTextColumn Binding="{Binding type}" Header="Type"/>
-                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAL_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,45 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Studio studio = DatabaseOperations.OphalenStudioViaId();
 
+            switch (Helper.studioId)
+            {
+                case 1:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Eight_Bit_logo.png", UriKind.Relative));
+                    break;
+                case 2:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/MadHouseLogo.jpg", UriKind.Relative));
+                    break;
+                case 3:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Toei_Animation_logo.png", UriKind.Relative));
+                    break;
+                case 4:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Studio_Pierrot.jpg", UriKind.Relative));
+                    break;
+                case 5:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Tms_logo.jpg", UriKind.Relative));
+                    break;
+                case 6:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Production_I.G_Logo.jpg", UriKind.Relative));
+                    break;
+                case 7:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/studio_gallop.jpg", UriKind.Relative));
+                    break;
+                case 8:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/studio_bones.jpg", UriKind.Relative));
+                    break;
+                case 9:
+                    PosterBleach.Source = new BitmapImage(new Uri("images/Ufotable_Logo.png", UriKind.Relative));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
