@@ -15,6 +15,36 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="StudioWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF7279FF" Offset="0.431"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button x:Name="btnAnnuleer" Content="Terug" Margin="5" Background="#FF2D8989" Click="BtnAnnuleer_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3">
+            <Image x:Name="PosterBleach" Height="auto" Width="auto" Grid.Row="1" Margin="5"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dataStudioInfo" AutoGenerateColumns="True" Margin="5"
+                  IsReadOnly="True" Grid.Column="1" Grid.RowSpan="3" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

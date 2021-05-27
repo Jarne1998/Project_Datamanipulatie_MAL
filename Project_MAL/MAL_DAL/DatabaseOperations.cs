@@ -43,14 +43,36 @@ namespace MAL_DAL
             }
         }
 
+        public static Studio OphalenStudioViaId()
+        {
+            using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+            {
+                return project_MALEntities.Studio
+                    .Include(x => x.Anime)
+                    .Where(x => x.studioId == Helper.studioId)
+                    .SingleOrDefault();
+            }
+        }
+
         public static List<Collection> OphalenCollectie()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Collection
                     .Include(x => x.AnimeCollection.Select(sub => sub.Animes))
-                    //.Where(x => x.userId == collection_Id)
+                    .Include(x => x.Users)
                     .OrderBy(x => x.name)
+                    .ToList();
+            }
+        }
+
+        public static List<Anime> OphalenInfoAnime()
+        {
+            using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+            {
+                return project_MALEntities.Anime
+                    .Include(x => x.Studios)
+                    .Include(x => x.AnimeGenre.Select(sub => sub.Genres))
                     .ToList();
             }
         }
@@ -61,19 +83,21 @@ namespace MAL_DAL
             {
                 return project_MALEntities.Anime
                     .Include(x => x.AnimeCollection)
+                    .Include(x => x.AnimeGenre.Select(sub => sub.Genres))
+                    .Include(x => x.Studios)
                     .Where(x => x.animeId == Helper.animeId)
                     .OrderBy(x => x.name)
                     .SingleOrDefault();
             }
         }
 
-        // Kan geen gegevens weergeven
         public static List<User> OphalenUsers()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.User
                     .Include(x => x.Collection.Select(sub => sub.AnimeCollection.Select(sub2 => sub2.Animes)))
+                    .Include(x => x.Collection)
                     .OrderBy(x => x.name)
                     .ToList();
             }
