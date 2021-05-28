@@ -38,7 +38,35 @@ namespace MAL_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
+            string foutmelding = Valideer("cmbUser");
 
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                Collection collection = new Collection();
+
+                collection.name = txtLijst.Text;
+
+                if (collection.IsGeldig())
+                {
+                    int ok = DatabaseOperations.ToevoegenLijst(collection);
+                    if (ok > 0)
+                    {
+                        MessageBox.Show("Lijst is toegevoegd!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lijst is niet toegevoegd");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(collection.ErrorMessages);
+                }
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
 
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
