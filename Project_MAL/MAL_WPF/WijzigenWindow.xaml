@@ -25,8 +25,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF304DAE">
-            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Background="#FF47A098" Click="BtnAnnuleer_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF80CEEC">
+            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Background="#FFCF002F" Click="BtnAnnuleer_Click"/>
             <Button x:Name="btnAanpassen" Content="Aanpassen" Margin="5" Background="#FF47A098" Click="BtnAanpassen_Click"/>
         </StackPanel>
         

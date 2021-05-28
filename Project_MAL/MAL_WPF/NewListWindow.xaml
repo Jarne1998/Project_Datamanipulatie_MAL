@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"        
        
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="NewListWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="NewListWindow" Height="450" Width="800" Loaded="Window_Loaded" Background="#FF80CEEC">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,17 +27,19 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="skpList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical" Background="#FF304DAE">
+        <StackPanel x:Name="skpList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
                       Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged" />
-            
+
             <TextBox x:Name="txtLijst"  materialDesign:HintAssist.Hint="Naruto" Grid.Row="2" Grid.Column="0" Margin="5" />
 
-            <Button x:Name="btnCreateList" Content="Voeg Anime lijst toe" Grid.Column="1" Grid.Row="1" Margin="5" Click="BtnCreateList_Click" Background="#FF47A098"/>
-            <Button x:Name="btnCancel" Content="Annuleer" Grid.Column="1" Grid.Row="2" Margin="5" Click="BtnCancel_Click" Background="#FFDA2626" />
+            
         </StackPanel>
-       
-        
-        
+
+        <StackPanel Orientation="Vertical" Margin="5" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1">
+            <Button x:Name="btnCreateList" Content="lijst toevoegen" Grid.Column="1" Grid.Row="1" Margin="5" Click="BtnCreateList_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnToevoegenAnime" Content="Toevoegen Anime" Click="BtnToevoegenAnime_Click" Margin="5" Background="#FF3A6DB7"/>
+            <Button x:Name="btnCancel" Content="Annuleer" Grid.Column="1" Grid.Row="2" Margin="5" Click="BtnCancel_Click" Background="#FFCF002F"/>
+        </StackPanel>
     </Grid>
 </Window>

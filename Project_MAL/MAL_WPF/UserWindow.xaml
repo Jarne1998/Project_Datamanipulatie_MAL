@@ -30,16 +30,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.RowSpan="7" Background="#FF304DAE">
+        <StackPanel Orientation="Vertical" Grid.RowSpan="7" Background="#FF80CEEC">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
                       Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
             <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" SelectionChanged="CmbLijst_SelectionChanged" 
                       DisplayMemberPath="name"/>
 
-            <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF47A098"/>
-            <Button x:Name="btnNewList" Content="Nieuwe lijst" Margin="5" Click="BtnNewList_Click" Background="#FF47A098"/>
-            <Button x:Name="btnWijzigenNaam" Content="Wijzigen" Margin="5" Click="BtnWijzigenNaam_Click" Background="#FF47A098"/>
-            <Button x:Name="btnDeleteList" Content="Deleten lijst" Margin="5" Click="BtnDeleteList_Click" Background="#FFB73A3A"/>
+            <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnNewList" Content="Nieuwe lijst" Margin="5" Click="BtnNewList_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnWijzigenNaam" Content="Wijzigen" Margin="5" Click="BtnWijzigenNaam_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnDeleteList" Content="Deleten lijst" Margin="5" Click="BtnDeleteList_Click" Background="#FFCF002F"/>
 
         </StackPanel>
 
@@ -47,18 +47,18 @@
         <DataGrid x:Name="dataUser" AutoGenerateColumns="False" Margin="5"
                   IsReadOnly="True" Grid.RowSpan="4" Grid.Row="3" SelectionChanged="DataUser_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding userId}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
                 <DataGridTextColumn Binding="{Binding userName}" Header="Gebruikersnaam"/>
                 <DataGridTextColumn Binding="{Binding location}" Header="Locatie"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="dataCollection" AutoGenerateColumns="True" Margin="5" SelectionChanged="DataCollection_SelectionChanged"
+        <DataGrid x:Name="dataCollection" AutoGenerateColumns="False" Margin="5" SelectionChanged="DataCollection_SelectionChanged"
                   IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="7" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
                 <DataGridTextColumn Binding="{Binding status}" Header="Status"/>
+                <DataGridTextColumn Binding="{Binding episodes}" Header="Episodes"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

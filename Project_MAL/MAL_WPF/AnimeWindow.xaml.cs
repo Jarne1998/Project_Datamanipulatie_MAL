@@ -57,5 +57,11 @@ namespace MAL_WPF
         {
             dataAnime.ItemsSource = DatabaseOperations.OphalenStudio();
         }
+
+        private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
+        {
+            UserWindow userWindow = new UserWindow();
+            userWindow.Show();
+        }
     }
 }

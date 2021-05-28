@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MAL_WPF"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -26,9 +26,26 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.RowSpan="3" Grid.Row="0">
-            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Click="BtnAnnuleer_Click"/>
-            <Button x:Name="btnToevoegen" Content="Toevoegen" Margin="5" Click="BtnToevoegen_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF80CEEC">
+            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Click="BtnAnnuleer_Click" Background="#FFCF002F"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0">
+            <Button x:Name="bntverwijderen" Content="Verwijderen" Margin="5" Click="Bntverwijderen_Click" Background="#FFCF002F"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+            <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
+                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
+            <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" 
+                      DisplayMemberPath="name" SelectionChanged="CmbCollection_SelectionChanged"/>
+            <Button x:Name="btnToevoegenAnimeAanLijst" Content="Toevoegen" Margin="5" Background="#FF1D8330" Click="BtnToevoegenAnimeAanLijst_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
+            <TextBox x:Name="txtAnimeNaam"  materialDesign:HintAssist.Hint="Anime" Margin="5" />
+            <TextBox x:Name="txtStatus"  materialDesign:HintAssist.Hint="Status" Margin="5" />
+            <Button x:Name="btnToevoegenNieuweAnime" Content="Toevoegen" Margin="5" Background="#FF1D8330" Click="BtnToevoegenNieuweAnime_Click"/>
         </StackPanel>
 
         <DataGrid x:Name="dataAnime" AutoGenerateColumns="False" Margin="5"

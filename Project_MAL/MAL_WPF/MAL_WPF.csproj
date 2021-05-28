@@ -83,6 +83,9 @@
     <Compile Include="StudioWindow.xaml.cs">
       <DependentUpon>StudioWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToevoegenAnimeWindow.xaml.cs">
+      <DependentUpon>ToevoegenAnimeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToevoegenAnimeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

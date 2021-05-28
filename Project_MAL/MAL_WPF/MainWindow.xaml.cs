@@ -42,5 +42,11 @@ namespace MAL_WPF
             AnimeWindow animeWindow = new AnimeWindow();
             animeWindow.Show();
         }
+
+        private void BtnStudioCollection_Click(object sender, RoutedEventArgs e)
+        {
+            AnimeWindow animeWindow = new AnimeWindow();
+            animeWindow.Show();
+        }
     }
 }

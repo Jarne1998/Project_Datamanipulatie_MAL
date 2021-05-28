@@ -71,6 +71,7 @@
       <DependentUpon>ProjectMalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Partials\Anime.cs" />
     <Compile Include="Partials\Collection.cs" />
     <Compile Include="ProjectMalModel.Context.cs">
       <AutoGen>True</AutoGen>

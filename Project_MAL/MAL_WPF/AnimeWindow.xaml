@@ -35,9 +35,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="4" Background="#FF304DAE">
-            <Button x:Name="btnAnime" Content="Anime" Margin="5" Click="BtnAnime_Click" Background="#FF47A098"/>
-            <Button x:Name="btnStudio" Content="Studio" Margin="5" Click="BtnStudio_Click" Background="#FF47A098"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="4" Background="#FF80CEEC">
+            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Click="BtnAnnuleer_Click" Background="#FFCF002F"/>
+            <Button x:Name="btnAnime" Content="Anime" Margin="5" Click="BtnAnime_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnStudio" Content="Studio" Margin="5" Click="BtnStudio_Click" Background="#FF3A6DB7"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">

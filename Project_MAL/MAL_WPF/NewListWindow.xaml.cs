@@ -83,5 +83,11 @@ namespace MAL_WPF
 
             return "";
         }
+
+        private void BtnToevoegenAnime_Click(object sender, RoutedEventArgs e)
+        {
+            ToevoegenAnimeWindow toevoegenAnimeWindow = new ToevoegenAnimeWindow();
+            toevoegenAnimeWindow.Show();
+        }
     }
 }

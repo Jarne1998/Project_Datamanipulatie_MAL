@@ -26,9 +26,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.RowSpan="3" Grid.Row="0">
-            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Click="BtnAnnuleer_Click"/>
-            <Button x:Name="btnVerwijderen" Content="Delete" Margin="5" Click="BtnVerwijderen_Click"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Background="#FF80CEEC">
+            <Button x:Name="btnAnnuleer" Content="Annuleer" Margin="5" Click="BtnAnnuleer_Click" Background="#FFCF002F"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.RowSpan="3" Grid.Row="1">
+            <Button x:Name="btnVerwijderen" Content="Delete" Margin="5" Click="BtnVerwijderen_Click" Background="#FF3A6DB7"/>
         </StackPanel>
 
         <DataGrid x:Name="dataLijsten" AutoGenerateColumns="False" Margin="5"
