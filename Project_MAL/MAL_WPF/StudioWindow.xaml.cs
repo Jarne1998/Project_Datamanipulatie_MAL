@@ -27,6 +27,12 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            dataAnime.DisplayMemberPath = "name";
+            dataAnime.ItemsSource = DatabaseOperations.OphalenAnimes();
+
+            dataStudioInfo.DisplayMemberPath = "name";
+            dataStudioInfo.ItemsSource = DatabaseOperations.OphalenStudio();
+
             Studio studio = DatabaseOperations.OphalenStudioViaId();
 
             switch (Helper.studioId)
@@ -66,6 +72,18 @@ namespace MAL_WPF
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Maakt dubbele Animes aan
+
+            //Anime anime = new Anime();
+
+            //Helper.animeId = anime.animeId;
+
+            //AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
+            //animeInfoWindow.Show();
         }
     }
 }

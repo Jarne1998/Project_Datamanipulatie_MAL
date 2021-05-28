@@ -25,7 +25,7 @@ namespace MAL_DAL
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
             {
                 return project_MALEntities.Anime
-                    .Include(x => x.AnimeCollection)
+                    .Include(x => x.AnimeCollection.Select(sub => sub.Collections))
                     .Include(x => x.Studios)
                     .OrderBy(x => x.name)
                     .ToList();
@@ -148,6 +148,23 @@ namespace MAL_DAL
             }
         }
 
+        public static int VerwijderenAnime(Anime anime)
+        {
+            try
+            {
+                using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+                {
+                    project_MALEntities.Entry(anime).State = EntityState.Deleted;
+                    return project_MALEntities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.Foutloggen(ex);
+                return 0;
+            }
+        }
+
         public static int ToevoegenLijst(Collection collection)
         {
             try
@@ -155,6 +172,40 @@ namespace MAL_DAL
                 using (Project_MALEntities project_MALEntities = new Project_MALEntities())
                 {
                     project_MALEntities.Collection.Add(collection);
+                    return project_MALEntities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.Foutloggen(ex);
+                return 0;
+            }
+        }
+
+        public static int ToevoegenNieuweAnime(Anime anime)
+        {
+            try
+            {
+                using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+                {
+                    project_MALEntities.Anime.Add(anime);
+                    return project_MALEntities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.Foutloggen(ex);
+                return 0;
+            }
+        }
+
+        public static int ToevoegenBestaandeAnime(Anime anime)
+        {
+            try
+            {
+                using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+                {
+                    project_MALEntities.Anime.Add(anime);
                     return project_MALEntities.SaveChanges();
                 }
             }

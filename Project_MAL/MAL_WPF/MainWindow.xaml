@@ -13,9 +13,10 @@
         TextOptions.TextRenderingMode="Auto"        
        
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Background="#FF80CEEC">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -26,7 +27,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnUser" Content="Gebruiker" Margin="5" Grid.Column="0" Grid.Row="3" Click="BtnUser_Click"/>
-        <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Grid.Column="1" Grid.Row="3" Click="BtnAnimeCollection_Click"/>
+        <StackPanel Orientation="Vertical" Margin="5" Grid.Row="1" Grid.RowSpan="3" Grid.Column="1">
+            <Button x:Name="btnUser" Content="Gebruiker" Margin="5" Click="BtnUser_Click" Background="#FFB7953A"/>
+            <Button x:Name="btnAnimeCollection" Content="Anime" Margin="5" Click="BtnAnimeCollection_Click" Background="#FF3A6DB7"/>
+            <Button x:Name="btnStudioCollection" Content="Studio" Margin="5" Click="BtnStudioCollection_Click" Background="#FF3A6DB7"/>
+        </StackPanel>
     </Grid>
 </Window>

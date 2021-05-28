@@ -27,9 +27,15 @@ namespace MAL_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Anime anime = DatabaseOperations.OphalenAnimesViaId();
+            Studio studio = DatabaseOperations.OphalenStudioViaId();
 
-            //dataAnimeInfo.ItemsSource = anime.AnimeGenre;
+            dataAnimeInfo.DisplayMemberPath = "name";
+            dataAnimeInfo.ItemsSource = DatabaseOperations.OphalenAnimes();
+
+            dataStudio.DisplayMemberPath = "name";
+            dataStudio.ItemsSource = DatabaseOperations.OphalenStudio();
+
+            Anime anime = DatabaseOperations.OphalenAnimesViaId();
 
             switch (Helper.animeId)
             {
