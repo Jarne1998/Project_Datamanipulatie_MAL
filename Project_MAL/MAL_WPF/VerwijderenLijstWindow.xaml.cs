@@ -25,6 +25,9 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
+        /*
+         Laad alle data in.
+         */
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dataLijsten.DisplayMemberPath = "name";
@@ -33,11 +36,18 @@ namespace MAL_WPF
             dataLijsten.Items.Refresh();
         }
 
+        /*
+         Sluit huidige scherm
+         */
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /*
+         CUD:
+         Verwijdert de geselecteerde lijst.
+         */
         private void BtnVerwijderen_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("name");
@@ -62,6 +72,9 @@ namespace MAL_WPF
             }
         }
 
+        /*
+         Valideer methode
+         */
         private string Valideer(string colmName)
         {
             if (colmName == "dataLijsten" && dataLijsten.SelectedItem == null)

@@ -25,6 +25,9 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
+        /*
+         Deze methode laad alle data in.
+         */
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbUser.DisplayMemberPath = "name";
@@ -34,51 +37,67 @@ namespace MAL_WPF
 
             cmbCollection.Items.Refresh();
 
-            //dataCollection.ItemsSource = DatabaseOperations.OphalenAnimesViaId();
-
-            //List<Collection> collection = DatabaseOperations.OphalenCollectie();
-
             List<User> users = DatabaseOperations.OphalenUsers();
         }
 
+        /*
+         Deze methode maakt het mogelijk om door te gaan naar een ander scherm.
+         */
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
         {
             AnimeWindow animeWindow = new AnimeWindow();
             animeWindow.Show();
         }
 
+        /*
+         CUD:
+         Deze methode gaat door naar het scherm voor de namen van een lijst te wijwzigen.
+         */
         private void BtnNewList_Click(object sender, RoutedEventArgs e)
         {
             NewListWindow newListWindow = new NewListWindow();
             newListWindow.Show();
         }
 
+        /*
+         CUD:
+         Maakt het mogelijk om een lijst te verwijderen.
+         */
         private void BtnDeleteList_Click(object sender, RoutedEventArgs e)
         {
             VerwijderenLijstWindow verwijderenLijstWindow = new VerwijderenLijstWindow();
             verwijderenLijstWindow.Show();
         }
 
+        /*
+         Deze methode haalt alle animes binnen.
+         */
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dataCollection.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
+        /*
+         Laad alle lijsten in de combobox in van de bijhorende user.
+         */
         private void CmbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimes();
+            Collection collection = cmbCollection.SelectedItem as Collection;
+
+            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimeCollectie(collection.collectionId);
         }
 
+        /*
+         Laad alle gebruikers in de combobox in.
+         */
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string foutmelding = Valideer("cmbUser");
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
                 User user = cmbUser.SelectedItem as User;
-                Collection collection = cmbCollection.SelectedItem as Collection;
 
-                dataUser.ItemsSource = DatabaseOperations.OphalenUsersViaId(user.userId);
-                dataCollection.ItemsSource = DatabaseOperations.OphalenLijstenPerGebruiker(collection.collectionId);
+                cmbCollection.ItemsSource = DatabaseOperations.OphalenLijstenPerGebruiker(user.userId);
             }
             else
             {
@@ -88,9 +107,12 @@ namespace MAL_WPF
 
         private void DataUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
+        /*
+         Valideer methode.
+         */
         private string Valideer(string colmName)
         {
             if (colmName == "cmbUser" && cmbUser.SelectedItem == null)
@@ -105,6 +127,10 @@ namespace MAL_WPF
             return "";
         }
 
+        /*
+         * CUD:
+         Gaat door naar wijzigenscherm
+         */
         private void BtnWijzigenNaam_Click(object sender, RoutedEventArgs e)
         {
             WijzigenWindow wijzigenWindow = new WijzigenWindow();

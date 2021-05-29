@@ -9,6 +9,10 @@ namespace MAL_DAL
 {
     public partial class Collection : BaseClass
     {
+        /*
+         uitbreiding op Collection klasse.
+         */
+
         public override string this[string columName]
         {
             get

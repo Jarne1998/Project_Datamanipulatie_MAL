@@ -32,7 +32,7 @@
 
         <StackPanel Orientation="Vertical" Grid.RowSpan="7" Background="#FF80CEEC">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
-                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
+                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged" Margin="5"/>
             <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" SelectionChanged="CmbLijst_SelectionChanged" 
                       DisplayMemberPath="name"/>
 
