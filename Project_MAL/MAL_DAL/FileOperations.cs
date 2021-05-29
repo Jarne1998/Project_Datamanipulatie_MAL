@@ -9,6 +9,10 @@ namespace MAL_DAL
 {
     class FileOperations
     {
+        /*
+         Voor alle fouten te loggen en deze in een bestand te zetten.
+         */
+
         public static void Foutloggen(Exception fout)
         {
             using (StreamWriter writer = new StreamWriter("foutenbestand.txt", true))

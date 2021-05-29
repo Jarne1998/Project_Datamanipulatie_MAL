@@ -8,13 +8,22 @@ namespace MAL_Models
 {
     public abstract class BaseClass
     {
+        /*
+         Aanmaken abstracte variabele
+         */
         public abstract string this[string columName] { get; }
 
+        /*
+         IsGeldig methode voor het opvangen van errors.
+         */
         public bool IsGeldig()
         {
             return string.IsNullOrWhiteSpace(ErrorMessages);
         }
 
+        /*
+         Voor het aanmaken van error teksten.
+         */
         public string ErrorMessages
         {
             get

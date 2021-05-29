@@ -29,7 +29,7 @@
 
         <StackPanel x:Name="skpList" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
-                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged" />
+                      Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"  Margin="5"/>
 
             <TextBox x:Name="txtLijst"  materialDesign:HintAssist.Hint="Naruto" Grid.Row="2" Grid.Column="0" Margin="5" />
 

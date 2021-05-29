@@ -25,6 +25,9 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
+        /*
+         Laad de bijhorende studio in en met de bijhorende afbeelding.
+         */
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dataAnime.DisplayMemberPath = "name";
@@ -69,14 +72,20 @@ namespace MAL_WPF
             }
         }
 
+        /*
+         Sluit het huidige venster.
+         */
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /*
+         Maakt het mogelijk om verder te gaan naar Anime scherm.
+         */
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Anime anime = (Anime)dataAnime.SelectedItem;
+            Anime anime = dataAnime.SelectedItem as Anime;
 
             Helper.animeId = anime.animeId;
 

@@ -25,6 +25,9 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
+        /*
+         Deze methode laad alle data in.
+         */
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
@@ -33,11 +36,17 @@ namespace MAL_WPF
             cmbCollection.DisplayMemberPath = "name";
         }
 
+        /*
+         Deze methode sluit het huidge scherm.
+         */
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /*
+         Deze methode maakt het mogelijk om namen aan te passen van lijsten.
+         */
         private void BtnAanpassen_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("name");
@@ -74,14 +83,44 @@ namespace MAL_WPF
             }
         }
 
+        /*
+         Deze methode zorgt voor de validatie op de combobox.
+         */
         private string Valideer(string columnName)
         {
+            if (columnName == "cmbuser" && cmbUser.SelectedItem == null)
+            {
+                return "Selecteer een gebruiker";
+            }
+
             return "";
         }
 
+        /*
+         Deze mthode laad alle animes in.
+         */
         private void DatagridLijstInhoud_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnimes();
+        }
+
+
+        /*
+         Deze methode zorgt voor het ophalen vand e bijhorende lijsten van elke user.
+         */
+        private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string foutmelding = Valideer("cmbUser");
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                User user = cmbUser.SelectedItem as User;
+
+                cmbCollection.ItemsSource = DatabaseOperations.OphalenLijstenPerGebruiker(user.userId);
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
     }
 }

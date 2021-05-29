@@ -25,7 +25,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
+        
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Background="#FF80CEEC">
             <Button x:Name="btnAnnuleer" Content="Terug" Margin="5" Background="#FF3A6DB7" Click="BtnAnnuleer_Click"/>
         </StackPanel>
@@ -43,7 +43,7 @@
         </DataGrid>
 
         <DataGrid x:Name="dataStudio" AutoGenerateColumns="False" Margin="5"
-                  IsReadOnly="True" Grid.Column="1" Grid.RowSpan="4" Grid.Row="1" SizeChanged="DataStudio_SizeChanged">
+                  IsReadOnly="True" Grid.Column="1" Grid.RowSpan="4" Grid.Row="1" SelectionChanged="DataStudio_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
             </DataGrid.Columns>

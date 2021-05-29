@@ -31,18 +31,27 @@ namespace MAL_WPF
          
         }
 
+        /*
+         Geeft UserWindow weer.
+         */
         private void BtnUser_Click(object sender, RoutedEventArgs e)
         {
             UserWindow userWindow = new UserWindow();
             userWindow.Show();
         }
 
+        /*
+         Geeft AnimeWindow weer.
+         */
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
         {
             AnimeWindow animeWindow = new AnimeWindow();
             animeWindow.Show();
         }
 
+        /*
+         Geeft AnimeWindow weer.
+         */
         private void BtnStudioCollection_Click(object sender, RoutedEventArgs e)
         {
             AnimeWindow animeWindow = new AnimeWindow();

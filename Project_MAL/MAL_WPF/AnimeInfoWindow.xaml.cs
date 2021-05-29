@@ -25,6 +25,11 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
+        /*
+        De DatabaseOperations: OphalenStudioViaId, OphalenAnimes, OphalenStudio en OphalenAnimesViaId zorgen 
+        voor het inladen van de huidige data. De switch methode wordt gebruikt om de juiste afbeelding bij de juiste Anime 
+        te tonen.
+         */
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Studio studio = DatabaseOperations.OphalenStudioViaId();
@@ -72,11 +77,12 @@ namespace MAL_WPF
 
                 default:
                     break;
-            }
-
-            
+            }            
         }
 
+        /*
+         Deze methode sluit het huidige scherm.
+         */
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -87,9 +93,17 @@ namespace MAL_WPF
             
         }
 
-        private void DataStudio_SizeChanged(object sender, SizeChangedEventArgs e)
+        /*
+         Deze methode zorgt voor het selecteren van data in de databse en opend de bijhorende window.
+         */
+        private void DataStudio_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            Studio studio = dataStudio.SelectedItem as Studio;
+
+            Helper.studioId = studio.studioId;
+
+            StudioWindow studioWindow = new StudioWindow();
+            studioWindow.Show();
         }
     }
 }
