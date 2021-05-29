@@ -43,7 +43,7 @@
         </DataGrid>
 
         <DataGrid x:Name="dataStudio" AutoGenerateColumns="False" Margin="5"
-                  IsReadOnly="True" Grid.Column="1" Grid.RowSpan="4" Grid.Row="1">
+                  IsReadOnly="True" Grid.Column="1" Grid.RowSpan="4" Grid.Row="1" SizeChanged="DataStudio_SizeChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="Naam"/>
             </DataGrid.Columns>

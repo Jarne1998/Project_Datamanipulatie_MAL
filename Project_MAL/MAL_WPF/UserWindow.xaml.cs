@@ -75,10 +75,10 @@ namespace MAL_WPF
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
                 User user = cmbUser.SelectedItem as User;
-                //Collection collection = cmbCollection.SelectedItem as Collection;
+                Collection collection = cmbCollection.SelectedItem as Collection;
 
                 dataUser.ItemsSource = DatabaseOperations.OphalenUsersViaId(user.userId);
-                //dataCollection.ItemsSource = DatabaseOperations.OphalenCollectie(collection.collectionId);
+                dataCollection.ItemsSource = DatabaseOperations.OphalenLijstenPerGebruiker(collection.collectionId);
             }
             else
             {

@@ -114,6 +114,17 @@ namespace MAL_DAL
             }
         }
 
+        public static List<User> OphalenLijstenPerGebruiker(int collection_Id)
+        {
+            using (Project_MALEntities project_MALEntities = new Project_MALEntities())
+            {
+                return project_MALEntities.User
+                    .Where(x => x.userId == collection_Id)
+                    .OrderBy(x => x.name)
+                    .ToList();
+            }
+        }
+
         public static int AanpassenNaamLijst(Collection collection)
         {
             try
