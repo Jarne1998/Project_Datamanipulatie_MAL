@@ -76,14 +76,12 @@ namespace MAL_WPF
 
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Maakt dubbele Animes aan
+            Anime anime = (Anime)dataAnime.SelectedItem;
 
-            //Anime anime = new Anime();
+            Helper.animeId = anime.animeId;
 
-            //Helper.animeId = anime.animeId;
-
-            //AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
-            //animeInfoWindow.Show();
+            AnimeInfoWindow animeInfoWindow = new AnimeInfoWindow();
+            animeInfoWindow.Show();
         }
     }
 }

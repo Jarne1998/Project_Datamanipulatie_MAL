@@ -81,14 +81,24 @@ namespace MAL_WPF
                 Anime anime = new Anime();
                 anime.name = txtAnimeNaam.Text;
                 anime.status = txtStatus.Text;
+                anime.aired = DateTime.Now;
                 anime.animeId = collection.collectionId;
                 anime.animeId = user.userId;
 
                 if (anime.IsGeldig())
                 {
                     int ok = DatabaseOperations.ToevoegenNieuweAnime(anime);
-                    MessageBox.Show("Nieuwe Anime is toegevoegd!");
-                    Wissen();
+
+                    if (ok > 0)
+                    {
+                        MessageBox.Show("Nieuwe Anime is toegevoegd!");
+                        Wissen();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nieuwe Anime is niet toegevoegd!");
+                    }
+                    
                 }
                 else
                 {

@@ -13,10 +13,12 @@
         TextOptions.TextRenderingMode="Auto"        
        
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="ToevoegenAnimeWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="ToevoegenAnimeWindow" Height="600" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -34,7 +36,7 @@
             <Button x:Name="bntverwijderen" Content="Verwijderen" Margin="5" Click="Bntverwijderen_Click" Background="#FFCF002F"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
             <ComboBox x:Name="cmbUser" materialDesign:HintAssist.Hint="Gebruikers" 
                       Grid.Row="0" Grid.Column="0" SelectionChanged="CmbUser_SelectionChanged"/>
             <ComboBox x:Name="cmbCollection" materialDesign:HintAssist.Hint="Lijst" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" 
@@ -42,14 +44,17 @@
             <Button x:Name="btnToevoegenAnimeAanLijst" Content="Toevoegen" Margin="5" Background="#FF1D8330" Click="BtnToevoegenAnimeAanLijst_Click"/>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="2">
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.RowSpan="3">
             <TextBox x:Name="txtAnimeNaam"  materialDesign:HintAssist.Hint="Anime" Margin="5" />
             <TextBox x:Name="txtStatus"  materialDesign:HintAssist.Hint="Status" Margin="5" />
+            <TextBox x:Name="txtAired"  materialDesign:HintAssist.Hint="Aired" Margin="5" />
+            <TextBox x:Name="txtDuur"  materialDesign:HintAssist.Hint="Duur" Margin="5" />
+            <TextBox x:Name="txtType"  materialDesign:HintAssist.Hint="type" Margin="5" />
             <Button x:Name="btnToevoegenNieuweAnime" Content="Toevoegen" Margin="5" Background="#FF1D8330" Click="BtnToevoegenNieuweAnime_Click"/>
         </StackPanel>
 
         <DataGrid x:Name="dataAnime" AutoGenerateColumns="False" Margin="5"
-                  IsReadOnly="True" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" SelectionChanged="DataAnime_SelectionChanged">
+                  IsReadOnly="True" Grid.RowSpan="34" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" SelectionChanged="DataAnime_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding name}" Header="name"/>
             </DataGrid.Columns>

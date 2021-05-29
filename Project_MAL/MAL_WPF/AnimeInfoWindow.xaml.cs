@@ -86,5 +86,10 @@ namespace MAL_WPF
         {
             
         }
+
+        private void DataStudio_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            
+        }
     }
 }
