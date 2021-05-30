@@ -25,28 +25,31 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
-        /*
-         Deze methode laad alle data in.
-         */
+        /// <summary>
+        /// Deze methode laad alle data in.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
             cmbUser.DisplayMemberPath = "name";
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
             cmbCollection.DisplayMemberPath = "name";
+
+            cmbUser.Items.Refresh();
+            cmbCollection.Items.Refresh();
         }
 
-        /*
-         Deze methode sluit het huidge scherm.
-         */
+        /// <summary>
+        /// Deze methode sluit het huidge scherm.
+        /// </summary>
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        /*
-         Deze methode maakt het mogelijk om namen aan te passen van lijsten.
-         */
+        /// <summary>
+        /// Deze methode maakt het mogelijk om namen aan te passen van lijsten.
+        /// </summary>
         private void BtnAanpassen_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("name");
@@ -83,9 +86,9 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Deze methode zorgt voor de validatie op de combobox.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor de validatie op de combobox.
+        /// </summary>
         private string Valideer(string columnName)
         {
             if (columnName == "cmbuser" && cmbUser.SelectedItem == null)
@@ -96,18 +99,17 @@ namespace MAL_WPF
             return "";
         }
 
-        /*
-         Deze mthode laad alle animes in.
-         */
+        /// <summary>
+        /// Deze mthode laad alle animes in.
+        /// </summary>
         private void DatagridLijstInhoud_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             datagridLijstInhoud.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
-
-        /*
-         Deze methode zorgt voor het ophalen vand e bijhorende lijsten van elke user.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor het ophalen vand e bijhorende lijsten van elke user.
+        /// </summary>
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string foutmelding = Valideer("cmbUser");

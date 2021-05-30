@@ -25,19 +25,21 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
-        /*
-         Laad de gebruikers in de combobox in.
-         */
+        /// <summary>
+        /// Laad de gebruikers in de combobox in.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            cmbUser.Items.Refresh();
+
             cmbUser.DisplayMemberPath = "name";
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
         }
 
-        /*
-         CUD:
-         Maakt nieuwe lijst aan.
-         */
+        /// <summary>
+        /// CUD:
+        ///  Maakt nieuwe lijst aan.
+        /// </summary>
         private void BtnCreateList_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("cmbUser");
@@ -71,9 +73,9 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Sluit de huidige window.
-         */
+        /// <summary>
+        /// Sluit de huidige window.
+        /// </summary>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -84,9 +86,9 @@ namespace MAL_WPF
 
         }
 
-        /*
-         Valideer methode
-         */
+        /// <summary>
+        /// Valideer methode
+        /// </summary>
         private string Valideer(string columName)
         {
             if (columName == "cmbUser" && cmbUser.SelectedItem == null)
@@ -97,10 +99,10 @@ namespace MAL_WPF
             return "";
         }
 
-        /*
-         CUD:
-         Gaat naar CUD operatie voor animes toe te voegen.
-         */
+        /// <summary>
+        /// CUD:
+        ///  Gaat naar CUD operatie voor animes toe te voegen.
+        /// </summary>
         private void BtnToevoegenAnime_Click(object sender, RoutedEventArgs e)
         {
             ToevoegenAnimeWindow toevoegenAnimeWindow = new ToevoegenAnimeWindow();

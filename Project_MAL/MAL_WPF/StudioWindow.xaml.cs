@@ -25,9 +25,15 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
-        /*
-         Laad de bijhorende studio in en met de bijhorende afbeelding.
-         */
+        /// <summary>
+        /// Known bugs:
+        /// - Data wordt getoond maar niet specifiek voor de studio en de animes
+        ///   die hier bij hoort.
+        /// </summary>
+
+        /// <summary>
+        /// Laad de bijhorende studio in en met de bijhorende afbeelding.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dataAnime.DisplayMemberPath = "name";
@@ -72,17 +78,17 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Sluit het huidige venster.
-         */
+        /// <summary>
+        /// Sluit het huidige venster.
+        /// </summary>
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        /*
-         Maakt het mogelijk om verder te gaan naar Anime scherm.
-         */
+        /// <summary>
+        /// Maakt het mogelijk om verder te gaan naar Anime scherm.
+        /// </summary>
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Anime anime = dataAnime.SelectedItem as Anime;

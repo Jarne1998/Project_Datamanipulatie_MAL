@@ -8,9 +8,9 @@ namespace MAL_DAL
 {
     public static class Helper
     {
-        /*
-         Voor data van het ene venster naar het andere over te laten gaan.
-         */
+        /// <summary>
+        /// Voor data van het ene venster naar het andere over te laten gaan.
+        /// </summary>
 
         public static int animeId = -1;
         public static int studioId = -1;

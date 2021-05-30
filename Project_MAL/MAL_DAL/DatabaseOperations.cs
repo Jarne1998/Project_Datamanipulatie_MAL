@@ -9,10 +9,10 @@ namespace MAL_DAL
 {
     public static class DatabaseOperations
     {
-        /*
-        Deze methode neemt de data van table Anime, Studio en Collection via de table
-        AnimeCollection en sorteert deze bij naam.
-         */
+        /// <summary>
+        /// Deze methode neemt de data van table Anime, Studio en Collection via de table
+        /// AnimeCollection en sorteert deze bij naam.
+        /// </summary>
         public static List<Anime> OphalenAnimes()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -24,10 +24,10 @@ namespace MAL_DAL
                     .ToList();
             }
         }
-        
-        /*
-        Deze methode haalt de bijhorende Collection van de User.
-         */
+
+        /// <summary>
+        /// Deze methode haalt de bijhorende Collection van de User.
+        /// </summary>
         public static List<AnimeCollection> OphalenAnimeCollectie(int collection)
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -39,9 +39,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode haalt alle studio's op.
-         */
+        /// <summary>
+        /// Deze methode haalt alle studio's op.
+        /// </summary>
         public static List<Studio> OphalenStudio()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities()) 
@@ -53,10 +53,10 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze mthode haalt alle studio's op via hun id en stelt deze gelijk aan de
-         variabele in de Helper klasse 
-         */
+        /// <summary>
+        /// Deze mthode haalt alle studio's op via hun id en stelt deze gelijk aan de
+        /// variabele in de Helper klasse.
+        /// </summary>
         public static Studio OphalenStudioViaId()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -68,9 +68,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode haalt alle collecties op met hun data;
-         */
+        /// <summary>
+        /// Deze methode haalt alle collecties op met hun data.
+        /// </summary>
         public static List<Collection> OphalenCollectie()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -83,9 +83,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode haalt alle animes op via hun id en include de studio's en de genre's.
-         */
+        /// <summary>
+        /// Deze methode haalt alle animes op via hun id en include de studio's en de genre's.
+        /// </summary>
         public static Anime OphalenAnimesViaId()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -100,9 +100,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze haalt alle gebruikers op met zijn collecties met hierbij de bijhorende animes.
-         */
+        /// <summary>
+        /// Deze haalt alle gebruikers op met zijn collecties met hierbij de bijhorende animes.
+        /// </summary>
         public static List<User> OphalenUsers()
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -115,20 +115,9 @@ namespace MAL_DAL
             }
         }
 
-        public static List<User> OphalenUsersViaId(int user_Id)
-        {
-            using (Project_MALEntities project_MALEntities = new Project_MALEntities())
-            {
-                return project_MALEntities.User
-                    .Where(x => x.userId == user_Id)
-                    .OrderBy(x => x.name)
-                    .ToList();
-            }
-        }
-
-        /*
-         Deze methode haalt alle lijsten op van de bijhorende gebruiker.
-         */
+        /// <summary>
+        /// Deze methode haalt alle lijsten op van de bijhorende gebruiker.
+        /// </summary>
         public static List<Collection> OphalenLijstenPerGebruiker(int user)
         {
             using (Project_MALEntities project_MALEntities = new Project_MALEntities())
@@ -140,9 +129,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode zorgt voor het aanpassen van lijst namen.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor het aanpassen van lijst namen.
+        /// </summary>
         public static int AanpassenNaamLijst(Collection collection)
         {
             try
@@ -160,9 +149,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode zorgt voor het verwijderen van lijsten.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor het verwijderen van lijsten.
+        /// </summary>
         public static int VerwijderenLijst(Collection collection)
         {
             try
@@ -180,9 +169,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode zorgt voor het verwijderen van animes.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor het verwijderen van animes.
+        /// </summary>
         public static int VerwijderenAnime(Anime anime)
         {
             try
@@ -200,9 +189,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode zorgt voor het toevoegen van lijsten.
-         */
+        /// <summary>
+        /// Deze methode zorgt voor het toevoegen van lijsten.
+        /// </summary>
         public static int ToevoegenLijst(Collection collection)
         {
             try
@@ -220,9 +209,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode maakt het mogelijk voor het toevoegen van een nieuwe animes.
-         */
+        /// <summary>
+        /// Deze methode maakt het mogelijk voor het toevoegen van een nieuwe animes.
+        /// </summary>
         public static int ToevoegenNieuweAnime(Anime anime)
         {
             try
@@ -240,9 +229,9 @@ namespace MAL_DAL
             }
         }
 
-        /*
-         Deze methode maakt het mogelijk om een huidige anime toe te voegen.
-         */
+        /// <summary>
+        /// Deze methode maakt het mogelijk om een huidige anime toe te voegen.
+        /// </summary>
         public static int ToevoegenBestaandeAnime(Anime anime)
         {
             try
