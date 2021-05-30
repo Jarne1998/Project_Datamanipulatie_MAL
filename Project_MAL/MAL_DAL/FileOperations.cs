@@ -9,9 +9,9 @@ namespace MAL_DAL
 {
     class FileOperations
     {
-        /*
-         Voor alle fouten te loggen en deze in een bestand te zetten.
-         */
+        /// <summary>
+        /// Voor alle fouten te loggen en deze in een bestand te zetten.
+        /// </summary>
 
         public static void Foutloggen(Exception fout)
         {

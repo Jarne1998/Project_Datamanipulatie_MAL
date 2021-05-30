@@ -24,74 +24,96 @@ namespace MAL_WPF
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Known bugs:
+        /// - User info wordt niet in het datagrid ingeladen.
+        /// - Elke lijst wordt automatisch opgevuld met alle anims in de
+        ///   database.
+        /// - Lijsten worden aangemaakt maar worden niet altijd toegevoegd aan de
+        ///   user die geslecteerd is. Deze kunnen wel getoond worden in de cmb
+        ///   zonder een user te selecteren.
+        /// </summary>
 
-        /*
-         Deze methode laad alle data in.
-         */
+        /// <summary>
+        /// Deze methode laad alle data in.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            cmbUser.Items.Refresh();
+            cmbCollection.Items.Refresh();
+
             cmbUser.DisplayMemberPath = "name";
             cmbUser.ItemsSource = DatabaseOperations.OphalenUsers();
             cmbCollection.DisplayMemberPath = "name";
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
 
-            cmbCollection.Items.Refresh();
-
             List<User> users = DatabaseOperations.OphalenUsers();
         }
 
-        /*
-         Deze methode maakt het mogelijk om door te gaan naar een ander scherm.
-         */
+        /// <summary>
+        /// Deze methode maakt het mogelijk om door te gaan naar een ander scherm.
+        /// </summary>
         private void BtnAnimeCollection_Click(object sender, RoutedEventArgs e)
         {
             AnimeWindow animeWindow = new AnimeWindow();
             animeWindow.Show();
         }
 
-        /*
-         CUD:
-         Deze methode gaat door naar het scherm voor de namen van een lijst te wijwzigen.
-         */
+        /// <summary>
+        /// CUD:
+        /// Deze methode gaat door naar het scherm voor de namen van een lijst te wijwzigen.
+        /// </summary>
         private void BtnNewList_Click(object sender, RoutedEventArgs e)
         {
             NewListWindow newListWindow = new NewListWindow();
             newListWindow.Show();
         }
 
-        /*
-         CUD:
-         Maakt het mogelijk om een lijst te verwijderen.
-         */
+        /// <summary>
+        /// CUD:
+        /// Maakt het mogelijk om een lijst te verwijderen.
+        /// </summary>
         private void BtnDeleteList_Click(object sender, RoutedEventArgs e)
         {
             VerwijderenLijstWindow verwijderenLijstWindow = new VerwijderenLijstWindow();
             verwijderenLijstWindow.Show();
         }
 
-        /*
-         Deze methode haalt alle animes binnen.
-         */
+        /// <summary>
+        /// Deze methode haalt alle animes binnen.
+        /// </summary>
         private void DataCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dataCollection.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
-        /*
-         Laad alle lijsten in de combobox in van de bijhorende user.
-         */
+        /// <summary>
+        /// Laad alle lijsten in de combobox in van de bijhorende user.
+        /// </summary>
         private void CmbLijst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Collection collection = cmbCollection.SelectedItem as Collection;
+            cmbCollection.Items.Refresh();
 
-            dataCollection.ItemsSource = DatabaseOperations.OphalenAnimeCollectie(collection.collectionId);
+            string foutmelding = Valideer("cmbCollection");
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                Collection collection = cmbCollection.SelectedItem as Collection;
+
+                dataCollection.ItemsSource = DatabaseOperations.OphalenAnimeCollectie(collection.collectionId);
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
 
-        /*
-         Laad alle gebruikers in de combobox in.
-         */
+        /// <summary>
+        /// Laad alle gebruikers in de combobox in.
+        /// </summary>
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cmbUser.Items.Refresh();
+
             string foutmelding = Valideer("cmbUser");
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
@@ -110,9 +132,9 @@ namespace MAL_WPF
             
         }
 
-        /*
-         Valideer methode.
-         */
+        /// <summary>
+        /// Valideer methode.
+        /// </summary>
         private string Valideer(string colmName)
         {
             if (colmName == "cmbUser" && cmbUser.SelectedItem == null)
@@ -121,16 +143,16 @@ namespace MAL_WPF
             }
             if (colmName == "cmbCollection" && cmbCollection.SelectedItem == null)
             {
-                return "Selceteer een lijst!" + Environment.NewLine;
+                return "Selceteer eerst een gebruiker!" + Environment.NewLine;
             }
 
             return "";
         }
 
-        /*
-         * CUD:
-         Gaat door naar wijzigenscherm
-         */
+        /// <summary>
+        /// CUD:
+        /// Gaat door naar wijzigenscherm
+        /// </summary>
         private void BtnWijzigenNaam_Click(object sender, RoutedEventArgs e)
         {
             WijzigenWindow wijzigenWindow = new WijzigenWindow();

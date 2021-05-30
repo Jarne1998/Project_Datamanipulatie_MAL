@@ -25,9 +25,16 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
-        /*
-         Laad alle data in de juiste combobox of datagrid in.
-         */
+        /// <summary>
+        /// Known bugs:
+        /// - Bestaande animes kunnen toegevoegd worden aan een lijst maar deze
+        ///   animes worden ook terug toegevoegd aan de database en worden meerdere keren getoond.
+        ///   (Dit geld niet voor nieuwe animes die worden toegevoegd)
+        /// </summary>
+
+        /// <summary>
+        /// Laad alle data in de juiste combobox of datagrid in.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbCollection.ItemsSource = DatabaseOperations.OphalenCollectie();
@@ -40,18 +47,18 @@ namespace MAL_WPF
             dataAnime.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
-        /*
-         Sluit de huidige window
-         */
+        /// <summary>
+        /// Sluit de huidige window.
+        /// </summary>
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        /*
-         CUD:
-         Voegt huidige naime toe aan een bestaande of nieuwe lijst.
-         */
+        /// <summary>
+        /// CUD:
+        /// Voegt huidige naime toe aan een bestaande of nieuwe lijst.
+        /// </summary>
         private void BtnToevoegenAnimeAanLijst_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("cmbuser");
@@ -77,10 +84,10 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         CUD:
-         Voegt een nieuwe anime toe aan de database en deze kan na het sluiten van huidig venster getoont worden in het datagrid.
-         */
+        /// <summary>
+        /// CUD:
+        /// Voegt een nieuwe anime toe aan de database en deze kan na het sluiten van huidig venster getoont worden in het datagrid.
+        /// </summary>
         private void BtnToevoegenNieuweAnime_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("cmbUser");
@@ -126,9 +133,9 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Toont alle animes in het datagrid.
-         */
+        /// <summary>
+        /// Toont alle animes in het datagrid.
+        /// </summary>
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dataAnime.SelectedItem is Anime anime)
@@ -145,9 +152,9 @@ namespace MAL_WPF
            
         }
 
-        /*
-         Maakt de textvelden leeg.
-         */
+        /// <summary>
+        /// Maakt de textvelden leeg
+        /// </summary>
         private void Wissen()
         {
             txtAnimeNaam.Text = "";
@@ -157,11 +164,13 @@ namespace MAL_WPF
             txtType.Text = "";
         }
 
-        /*
-         Laad de users in de combobox in en laat alle lijsten van deze user zien.
-         */
+        /// <summary>
+        /// Laad de users in de combobox in en laat alle lijsten van deze user zien.
+        /// </summary>
         private void CmbUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cmbUser.Items.Refresh();
+
             string foutmelding = Valideer("cmbUser");
             if (string.IsNullOrWhiteSpace(foutmelding))
             {
@@ -177,13 +186,13 @@ namespace MAL_WPF
 
         private void CmbCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            cmbCollection.Items.Refresh();
         }
 
-        /*
-         CUD:
-         Zorgt voor het verwijderen van de geselecteerde anime.
-         */
+        /// <summary>
+        /// CUD:
+        /// Zorgt voor het verwijderen van de geselecteerde anime.
+        /// </summary>
         private void Bntverwijderen_Click(object sender, RoutedEventArgs e)
         {
             string foutmelding = Valideer("name");
@@ -208,9 +217,9 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Valideer methode
-         */
+        /// <summary>
+        /// Valideer methode.
+        /// </summary>
         private string Valideer(string columName)
         {
             int parsedValue;

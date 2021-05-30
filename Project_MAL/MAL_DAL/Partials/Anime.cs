@@ -10,7 +10,7 @@ namespace MAL_DAL
     public partial class Anime : BaseClass
     {
         /*
-         uitbreiding van Anime klasse.
+         *uitbreiding van Anime klasse.
          */
         public override string this[string columName]
         {

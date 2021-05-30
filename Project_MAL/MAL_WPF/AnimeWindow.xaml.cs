@@ -25,18 +25,18 @@ namespace MAL_WPF
             InitializeComponent();
         }
 
-        /*
-         Laad een afbeelding in.
-         */
+        /// <summary>
+        /// Laad een afbeelding in.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             PosterBleach.Source = new BitmapImage(new Uri("images/DeamonSlayer.jpg", UriKind.Relative));
         }
 
-        /*
-         Maakt het mogelijk om een anime of een studio te selecteren en door te gaan naar de bijhorende window.
-         Maakt gebruik van de Helper klasse.
-         */
+        /// <summary>
+        /// Maakt het mogelijk om een anime of een studio te selecteren en door te gaan naar de bijhorende window.
+        /// Maakt gebruik van de Helper klasse.
+        /// </summary>
         private void DataAnime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dataAnime.SelectedItem is Anime anime)
@@ -55,25 +55,25 @@ namespace MAL_WPF
             }
         }
 
-        /*
-         Laad alle animes in.
-         */
+        /// <summary>
+        /// Laad alle animes in.
+        /// </summary>
         private void BtnAnime_Click(object sender, RoutedEventArgs e)
         {
             dataAnime.ItemsSource = DatabaseOperations.OphalenAnimes();
         }
 
-        /*
-         Laad alle studios in.
-         */
+        /// <summary>
+        /// Laad alle studios in.
+        /// </summary>
         private void BtnStudio_Click(object sender, RoutedEventArgs e)
         {
             dataAnime.ItemsSource = DatabaseOperations.OphalenStudio();
         }
 
-        /*
-         Sluit het huidige venster.
-         */
+        /// <summary>
+        /// Sluit het huidige venster.
+        /// </summary>
         private void BtnAnnuleer_Click(object sender, RoutedEventArgs e)
         {
             UserWindow userWindow = new UserWindow();
